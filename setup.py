@@ -1,8 +1,8 @@
 from setuptools import setup
 
 setup(
-    name='foodsearch',
-    packages=['foodsearch'],
+    name='app',
+    packages=['app'],
     include_package_data=True,
     install_requires=[
         'flask', 

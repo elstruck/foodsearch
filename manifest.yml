@@ -1,5 +1,5 @@
 applications:
-- name: foodsearch
+- name: app
   components:
   - type: Flask
     git:
