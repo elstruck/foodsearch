@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 
 import requests
 app = Flask(__name__)
-app.debug = True
+app.debug = False
 
 url = "https://api.spoonacular.com/"
 
