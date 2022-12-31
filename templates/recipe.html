@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %} {{recipe['title']}} {% endblock %}
+{% block body %}
+
+<div style="max-width: 70%; margin: auto; padding-top:3%">
+  <div class="media">
+      <img src="{{recipe['image']}}" class="mr-3" alt="..." width="20%" height="20%">
+      <div class="media-body">
+        <h5 class="mt-0">{{recipe['title']}}</h5>
+        <p>Servings: {{ recipe['servings'] }}</p>
+        <p>Ready In: {{ recipe['readyInMinutes']}} minutes</p>
+        {{recipe['instructions']}}
+      </div>
+  </div><br>
+  {% for ingred in recipe['extendedIngredients'] %}
+    <p>{{ ingred.name }} - {{ ingred.amount }} {{ ingred.unit }}</p>
+  {% endfor %}
+  
+</div>
+{% endblock %}
