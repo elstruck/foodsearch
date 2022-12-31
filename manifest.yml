@@ -1,0 +1,11 @@
+applications:
+- name: foodsearch
+  components:
+  - type: Flask
+    git:
+      url: https://github.com/elstruck/foodsearch.git
+      branch: master
+  services:
+  - type: postgres
+    name: mydb
+    version: 9.5
