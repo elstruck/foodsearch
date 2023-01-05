@@ -3,19 +3,26 @@
 {% block body %}
 <h2 style="text-align: center"> <a href="/" style="text-decoration: none; color:red"> Recipes for you: </a></h2>
 <div>
-  
+    <div class="row">
       {% for recipe in recipes %}
-          <div class="col-12">
-              <img src="{{recipe['image']}}" class="align-self-center mr-3" alt="..." width="100%" height="100%"><br />
-            </div>
-              <div class="media-body">
-                  <h5 class="col-12"><a href="/recipe?id={{ recipe['id'] }}">{{ recipe['title'] }}</a></h5>
-                      Your ingredients used? {{recipe['usedIngredientCount']}} <br>
+          
+            <div class="col-sm-4">
+                <div class="card">
+                    <a href="/recipe?id={{ recipe['id'] }}"><img src="{{recipe['image']}}" class="card-img-top" ></a>
+                    
+              <div class="card-body">
+                  <h5 class="card-title"><a href="/recipe?id={{ recipe['id'] }}">{{ recipe['title'] }}</a></h5>
+                      <p class="card-text">Your ingredients used? {{recipe['usedIngredientCount']}} <br>
                       How many missing ingredients? {{recipe['missedIngredientCount']}}  <br>
-                      How long to make this recipe? {{recipe['maxReadyTime']}}  <br>
+                        {% for missed in recipe['missedIngredients'] %}
+                            - {{ missed.name }} <br />
+                        {% endfor %}      
+                        </p>                
+                </div>
               </div>
-          </li> <br>
+            </div>
       {% endfor %}
- 
+          
+        </div>
 </div >
 {% endblock %}
